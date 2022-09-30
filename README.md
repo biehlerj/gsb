@@ -9,3 +9,9 @@ Are you tired of trying to set up GNOME the way you want it when you are setting
 ## Features being worked on
 
 To see a list of planned features see the [TODO list](docs/TODOS.md)
+
+## Author
+
+[Jacob Biehler](https://biehlerj.xyz)
+
+[Github profile](https://github.com/biehlerj/)
