@@ -17,3 +17,21 @@ As features are implemented they will get their own documentation
    6. Privacy
    7. WM Preferences
    8. Search Providers?
+
+## Equivalent `gsettings` commands for exporting
+
+All export commands use `gsettings list-recursively [setting]`
+
+- Keybindings:
+  - `org.gnome.shell.keybindings`
+  - `org.gnome.mutter.keybindings`
+  - `org.gnome.desktop.wm.keybindings`
+  - `org.gnome.settings-daemon.peripherals.keyboard`
+  - `org.gnome.settings-daemon.plugins.media-keys`
+- Settings:
+  - `org.gnome.desktop.background`
+  - `org.gnome.desktop.peripherals`
+  - `org.gnome.desktop.notifications`
+  - `org.gnome.desktop.default-applications`
+  - `org.gnome.desktop.privacy`
+  - `org.gnome.desktop.wm.preferences`
