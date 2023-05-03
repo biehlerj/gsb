@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/adrg/xdg"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -50,14 +51,13 @@ func initConfig() {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Find user's config directory.
-		confDir, err := os.UserConfigDir()
-		cobra.CheckErr(err)
-
-		// Search config in home directory with name ".gsb" (without extension).
-		viper.AddConfigPath(confDir + string(os.PathSeparator) + "gsb")
-		viper.SetConfigType("yaml")
+		// Search config in config directory with name "gsb" (without extension).
+		viper.AddConfigPath(fmt.Sprintf("%s/gsb", xdg.ConfigHome))
+		viper.SetConfigType("toml")
 		viper.SetConfigName("config")
+
+		// write default settings
+		viper.SetDefault("backup-file", fmt.Sprintf("%s/gsb/gsb-settings.csv", xdg.DataHome))
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

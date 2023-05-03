@@ -3,9 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/adrg/xdg"
-
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // importCmd represents the command to import GNOME settings
@@ -30,7 +29,7 @@ func importSettings(cmd *cobra.Command, args []string) {
 	if backupFile != "" {
 		importFile = backupFile
 	} else {
-		importFile = fmt.Sprintf("%s/gsb/gsb-settings.csv", xdg.DataHome)
+		importFile = viper.GetString("backup-file")
 	}
 	fmt.Println(importFile)
 }
